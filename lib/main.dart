@@ -28,11 +28,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _value = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        setState(() {
+          _value =! _value;
+        });
+      }),
+      body: Center(
+        child: AnimatedContainer(
+          duration: Duration(seconds: 2),
+          height: _value == false?150:350,
+          width: _value == false?150:300,
+          color: Colors.deepPurple[100],
 
+        ),
+      ),
     );
   }
 }
